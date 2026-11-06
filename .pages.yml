@@ -1,0 +1,38 @@
+settings:
+  content:
+    merge: true
+
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: content/posts
+    format: yaml-frontmatter
+    exclude: ["_index.md"]
+    filename:
+      template: "{year}-{month}-{day}-{primary}.md"
+      field: create
+    view:
+      fields: [title, date]
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: body
+        label: Body
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: false
