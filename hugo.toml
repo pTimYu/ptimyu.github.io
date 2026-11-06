@@ -12,8 +12,8 @@ defaultTheme = "auto"
 [params.profileMode]
 enabled = true
 subtitle = "眩しさだけわ、忘れなかった。"
-imageUrl = "images/yanami-datou.jpg"
-imageTitle = "Illustrated avatar of a blue-haired character"
+imageUrl = "images/profile-avatar.jpg"
+imageTitle = "Illustrated avatar of a lavender-haired character"
 imageWidth = 144
 imageHeight = 144
 spotifyTrackIDs = ["2RFSog931z758TPgpKhN0h", "0qMpU4VmLf6aMNc7CUErzV"]
