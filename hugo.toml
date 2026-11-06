@@ -1,5 +1,4 @@
-# Default GitHub Pages project URL for the current repository.
-baseURL = "https://ptimyu.github.io/timyu.github.io/"
+baseURL = "https://ptimyu.github.io/"
 locale = "en"
 title = "Youming (Tim) Yu"
 
