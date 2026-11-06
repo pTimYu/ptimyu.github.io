@@ -67,7 +67,6 @@ content:
       - name: draft
         label: Draft
         type: boolean
-        required: true
         default: false
       - name: body
         label: Body
