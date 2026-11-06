@@ -30,6 +30,11 @@
 </header>
 {{- end }}
 
+{{- $showPostCategories := or (and .IsSection (eq .Section "posts")) (and (eq .Kind "term") (eq .Data.Plural "categories")) }}
+{{- if $showPostCategories }}
+{{- partial "post_category_nav.html" . }}
+{{- end }}
+
 {{- if .Content }}
 <div class="post-content">
   {{- if not (.Param "disableAnchoredHeadings") }}
@@ -90,6 +95,9 @@
   </footer>
   {{- end }}
   <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  {{- if $showPostCategories }}
+  {{- partial "post_categories.html" . }}
+  {{- end }}
 </article>
 {{- end }}
 

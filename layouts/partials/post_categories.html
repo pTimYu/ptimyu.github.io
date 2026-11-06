@@ -1,0 +1,7 @@
+{{- with .GetTerms "categories" }}
+<ul class="post-category-links" aria-label="Post categories">
+    {{- range . }}
+    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{- end }}
+</ul>
+{{- end }}

@@ -1,0 +1,13 @@
+{{- $current := .RelPermalink }}
+{{- with site.Taxonomies.categories.Alphabetical }}
+<nav class="post-category-nav" aria-label="Browse posts by category">
+    <ul class="post-category-links">
+        {{- with site.GetPage "/posts" }}
+        <li><a href="{{ .RelPermalink }}"{{ if eq .RelPermalink $current }} aria-current="page"{{ end }}>All Posts</a></li>
+        {{- end }}
+        {{- range . }}
+        <li><a href="{{ .Page.RelPermalink }}"{{ if eq .Page.RelPermalink $current }} aria-current="page"{{ end }}>{{ .Page.LinkTitle }}</a></li>
+        {{- end }}
+    </ul>
+</nav>
+{{- end }}
