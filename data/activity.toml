@@ -1,0 +1,27 @@
+[[watching]]
+title = "生徒会にも穴はある！"
+url = "https://bangumi.tv/subject/554779"
+cover = "https://api.bgm.tv/v0/subjects/554779/image?type=common"
+episodes = 12
+score = "7.6"
+
+[[watching]]
+title = "とある暗部の少女共棲"
+url = "https://bangumi.tv/subject/537738"
+cover = "https://api.bgm.tv/v0/subjects/537738/image?type=common"
+episodes = 11
+score = "7.1"
+
+[[courses]]
+code = "MECH 403D1"
+title = "Thesis (Honours)"
+url = "https://coursecatalogue.mcgill.ca/courses/mech-403d1/index.html"
+credits = 3
+summary = "A supervised engineering research project combining theory, design, and investigation, culminating in a thesis."
+
+[[courses]]
+code = "MECH 559"
+title = "Engineering Systems Optimization"
+url = "https://coursecatalogue.mcgill.ca/courses/mech-559/"
+credits = 3
+summary = "Models engineering systems and applies numerical optimization to their design and integration."

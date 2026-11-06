@@ -1,0 +1,49 @@
+{{- with hugo.Data.activity }}
+<div class="home-activity">
+    <section aria-labelledby="watching-lately">
+        <h2 id="watching-lately">Watching Lately</h2>
+        <ul class="activity-grid">
+            {{- range .watching }}
+            <li>
+                <a class="activity-card activity-show" href="{{ .url }}">
+                    <img src="{{ .cover }}" alt="" width="72" height="102" loading="lazy" referrerpolicy="no-referrer">
+                    <div class="activity-copy">
+                        <h3 lang="ja">{{ .title }}</h3>
+                        <p class="activity-meta">TV anime · {{ .episodes }} episodes</p>
+                        <p class="activity-score">Bangumi · {{ .score }}/10</p>
+                    </div>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+    </section>
+
+    {{- with site.Params.profileMode.spotifyTrackIDs }}
+    <section aria-labelledby="listening-lately">
+        <h2 id="listening-lately">Listening Lately</h2>
+        {{- range . }}
+        <iframe class="spotify-player"
+            src="https://open.spotify.com/embed/track/{{ . }}"
+            title="Spotify track player"
+            width="360" height="152" loading="lazy"
+            allow="encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        {{- end }}
+    </section>
+    {{- end }}
+
+    <section aria-labelledby="working-on-lately">
+        <h2 id="working-on-lately">Working on Lately</h2>
+        <ul class="activity-grid">
+            {{- range .courses }}
+            <li>
+                <a class="activity-card activity-course" href="{{ .url }}">
+                    <p class="activity-meta">McGill · {{ .code }} · {{ .credits }} credits</p>
+                    <h3>{{ .title }}</h3>
+                    <p>{{ .summary }}</p>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+    </section>
+</div>
+{{- end }}

@@ -1,0 +1,50 @@
+# Default GitHub Pages project URL for the current repository.
+baseURL = "https://ptimyu.github.io/timyu.github.io/"
+locale = "en"
+title = "Youming (Tim) Yu"
+
+# PaperMod v8.0 with template compatibility fixes for Hugo v0.169.0.
+# https://github.com/adityatelange/hugo-PaperMod/releases/tag/v8.0
+theme = "PaperMod"
+
+[params]
+defaultTheme = "auto"
+
+[params.profileMode]
+enabled = true
+subtitle = "眩しさだけわ、忘れなかった。"
+imageUrl = "images/yanami-datou.jpg"
+imageTitle = "Illustrated avatar of a blue-haired character"
+imageWidth = 144
+imageHeight = 144
+spotifyTrackIDs = ["2RFSog931z758TPgpKhN0h", "0qMpU4VmLf6aMNc7CUErzV"]
+
+[[params.socialIcons]]
+name = "linkedin"
+title = "LinkedIn"
+url = "https://www.linkedin.com/in/youmingyu/"
+
+[[params.socialIcons]]
+name = "github"
+title = "GitHub"
+url = "https://github.com/pTimYu"
+
+[[menus.main]]
+name = "Home"
+pageRef = "/"
+weight = 10
+
+[[menus.main]]
+name = "About"
+pageRef = "/about"
+weight = 20
+
+[[menus.main]]
+name = "Posts"
+pageRef = "/posts"
+weight = 30
+
+[[menus.main]]
+name = "Gallery"
+pageRef = "/gallery"
+weight = 40
