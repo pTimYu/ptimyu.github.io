@@ -3,29 +3,26 @@
     list-style: none;
 }
 
-.photo-gallery li {
-    padding-block-start: var(--gap);
-    border-block-start: 1px solid var(--border);
-}
-
 .photo-gallery li + li {
-    margin-block-start: var(--gap);
+    margin-block-start: 2rem;
 }
 
 .photo-gallery h2 {
     margin-block-end: 0.75rem;
+    padding-block-end: 0.5rem;
+    border-block-end: 1px solid var(--border);
     font-size: 1.375rem;
 }
 
 .photo-gallery a {
-    display: inline-block;
-    max-width: 100%;
+    display: block;
 }
 
 .photo-gallery img {
     display: block;
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
 }
 
 .gallery-empty {
