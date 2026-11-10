@@ -104,6 +104,38 @@ content:
           media: false
   - name: gallery
     label: Gallery
+    type: collection
+    path: content/gallery
+    format: yaml-frontmatter
+    exclude: ["_index.md"]
+    filename:
+      template: "{primary}.md"
+      field: create
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: body
+        label: Body
+        type: rich-text
+        options:
+          format: markdown
+          media: gallery-images
+      - name: image
+        label: Photos
+        description: The first photo is used as the topic cover.
+        type: image
+        required: true
+        options:
+          media: gallery-images
+          multiple: true
+          unique: true
+      - name: alt
+        label: Alt Text (single image)
+        type: string
+  - name: gallery-intro
+    label: Gallery Introduction
     type: file
     path: content/gallery/_index.md
     format: toml-frontmatter
@@ -119,23 +151,3 @@ content:
         options:
           format: markdown
           media: false
-      - name: photos
-        label: Albums
-        type: object
-        list: true
-        fields:
-          - name: title
-            label: Title
-            type: string
-            required: true
-          - name: image
-            label: Images
-            type: image
-            required: true
-            options:
-              media: gallery-images
-              multiple: true
-              unique: true
-          - name: alt
-            label: Alt Text (single image)
-            type: string

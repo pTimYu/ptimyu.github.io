@@ -1,0 +1,35 @@
+{{- define "main" }}
+<article class="post-single gallery-album">
+    <header class="post-header gallery-topic-header">
+        {{- with .CurrentSection }}
+        <a class="gallery-back" href="{{ .RelPermalink }}">← {{ .LinkTitle }}</a>
+        {{- end }}
+        <h1 class="post-title">{{ .Title }}</h1>
+    </header>
+
+    {{- with .Content }}
+    <div class="post-content">{{ . }}</div>
+    {{- end }}
+
+    {{- $album := . }}
+    {{- with .Params.image }}
+    {{- $images := slice . }}
+    {{- if reflect.IsSlice . }}
+    {{- $images = . }}
+    {{- end }}
+    {{- $count := len $images }}
+    <div class="{{ if eq $count 1 }}gallery-single{{ else }}gallery-tiles {{ if eq $count 2 }}gallery-pair{{ else }}gallery-mosaic{{ end }}{{ end }}">
+        {{- range $index, $image := $images }}
+        {{- $src := strings.TrimPrefix "/" $image | relURL }}
+        {{- $alt := $album.Params.alt | default $album.Title }}
+        {{- if gt $count 1 }}
+        {{- $alt = printf "%s, photo %d" $album.Title (add $index 1) }}
+        {{- end }}
+        <a href="{{ $src }}">
+            <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+        </a>
+        {{- end }}
+    </div>
+    {{- end }}
+</article>
+{{- end }}
