@@ -12,14 +12,12 @@
     {{- range . }}
     {{- $src := strings.TrimPrefix "/" .image | relURL }}
     <li>
-        <figure>
-            <a href="{{ $src }}">
-                <img src="{{ $src }}" alt="{{ .alt | default .caption | default "View full-size photo" }}" loading="lazy" decoding="async">
-            </a>
-            {{- with .caption }}
-            <figcaption>{{ . }}</figcaption>
-            {{- end }}
-        </figure>
+        {{- with .title }}
+        <h2>{{ . }}</h2>
+        {{- end }}
+        <a href="{{ $src }}">
+            <img src="{{ $src }}" alt="{{ .alt | default .title | default "View full-size photo" }}" loading="lazy" decoding="async">
+        </a>
     </li>
     {{- end }}
 </ul>

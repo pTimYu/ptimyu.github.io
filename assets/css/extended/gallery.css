@@ -1,37 +1,31 @@
 .photo-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
-    gap: 1rem;
     margin-block: var(--gap);
     list-style: none;
 }
 
-.photo-gallery figure {
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--entry);
+.photo-gallery li {
+    padding-block-start: var(--gap);
+    border-block-start: 1px solid var(--border);
+}
+
+.photo-gallery li + li {
+    margin-block-start: var(--gap);
+}
+
+.photo-gallery h2 {
+    margin-block-end: 0.75rem;
+    font-size: 1.375rem;
 }
 
 .photo-gallery a {
-    display: block;
-}
-
-.photo-gallery a:focus-visible {
-    outline-offset: -3px;
+    display: inline-block;
+    max-width: 100%;
 }
 
 .photo-gallery img {
     display: block;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-}
-
-.photo-gallery figcaption {
-    padding: 0.75rem;
-    color: var(--secondary);
-    font-size: 0.875rem;
+    max-width: 100%;
+    height: auto;
 }
 
 .gallery-empty {
