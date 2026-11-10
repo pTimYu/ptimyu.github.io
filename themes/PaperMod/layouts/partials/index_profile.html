@@ -12,7 +12,7 @@
                 {{- $processableFormats = $processableFormats | append "webp" -}}
             {{- end -}}
             {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
-            {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true)}}
+            {{- if and $prod (not .imageUseOriginal) (in $processableFormats $img.MediaType.SubType) }}
                 {{- if (not (and (not .imageHeight) (not .imageWidth))) }}
                     {{- $img = $img.Resize (printf "%dx%d" .imageWidth .imageHeight) }}
                 {{- else if .imageHeight }}

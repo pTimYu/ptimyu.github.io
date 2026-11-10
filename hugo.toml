@@ -16,6 +16,7 @@ imageUrl = "images/profile-avatar.jpg"
 imageTitle = "Illustrated avatar of a lavender-haired character"
 imageWidth = 144
 imageHeight = 144
+imageUseOriginal = true
 spotifyTrackIDs = ["2RFSog931z758TPgpKhN0h", "0qMpU4VmLf6aMNc7CUErzV"]
 
 [[params.socialIcons]]
