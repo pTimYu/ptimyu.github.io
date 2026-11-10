@@ -3,9 +3,16 @@ settings:
     merge: true
 
 media:
-  input: static/images/posts
-  output: /images/posts
-  categories: [image]
+  - name: post-images
+    label: Post Images
+    input: static/images/posts
+    output: /images/posts
+    categories: [image]
+  - name: gallery-images
+    label: Gallery Images
+    input: static/images/gallery
+    output: /images/gallery
+    categories: [image]
 
 content:
   - name: posts
@@ -57,6 +64,8 @@ content:
           - name: image
             label: Image
             type: image
+            options:
+              media: post-images
           - name: alt
             label: Alt Text
             type: string
@@ -75,3 +84,55 @@ content:
         options:
           format: markdown
           media: false
+  - name: about
+    label: About
+    type: file
+    path: content/about.md
+    format: toml-frontmatter
+    delimiters: "+++"
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: body
+        label: About Text
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: false
+  - name: gallery
+    label: Gallery
+    type: file
+    path: content/gallery/_index.md
+    format: toml-frontmatter
+    delimiters: "+++"
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: body
+        label: Introduction
+        type: rich-text
+        options:
+          format: markdown
+          media: false
+      - name: photos
+        label: Photos
+        type: object
+        list: true
+        fields:
+          - name: image
+            label: Photo
+            type: image
+            required: true
+            options:
+              media: gallery-images
+          - name: alt
+            label: Alt Text
+            type: string
+          - name: caption
+            label: Caption
+            type: string

@@ -1,0 +1,39 @@
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+    gap: 1rem;
+    margin-block: var(--gap);
+    list-style: none;
+}
+
+.photo-gallery figure {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--entry);
+}
+
+.photo-gallery a {
+    display: block;
+}
+
+.photo-gallery a:focus-visible {
+    outline-offset: -3px;
+}
+
+.photo-gallery img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.photo-gallery figcaption {
+    padding: 0.75rem;
+    color: var(--secondary);
+    font-size: 0.875rem;
+}
+
+.gallery-empty {
+    color: var(--secondary);
+}

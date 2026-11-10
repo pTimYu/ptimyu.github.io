@@ -1,0 +1,29 @@
+{{- define "main" }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+</header>
+
+{{- with .Content }}
+<div class="post-content">{{ . }}</div>
+{{- end }}
+
+{{- with .Params.photos }}
+<ul class="photo-gallery" aria-label="Gallery photos">
+    {{- range . }}
+    {{- $src := strings.TrimPrefix "/" .image | relURL }}
+    <li>
+        <figure>
+            <a href="{{ $src }}">
+                <img src="{{ $src }}" alt="{{ .alt | default .caption | default "View full-size photo" }}" loading="lazy" decoding="async">
+            </a>
+            {{- with .caption }}
+            <figcaption>{{ . }}</figcaption>
+            {{- end }}
+        </figure>
+    </li>
+    {{- end }}
+</ul>
+{{- else }}
+<p class="gallery-empty">Photos and images will appear here.</p>
+{{- end }}
+{{- end }}
