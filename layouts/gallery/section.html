@@ -10,15 +10,31 @@
 {{- with .Params.photos }}
 <ul class="photo-gallery" aria-label="Gallery photos">
     {{- range . }}
-    {{- $src := strings.TrimPrefix "/" .image | relURL }}
-    <li>
-        {{- with .title }}
+    {{- $album := . }}
+    {{- with .image }}
+    {{- $images := . }}
+    {{- if not (reflect.IsSlice $images) }}
+    {{- $images = slice $images }}
+    {{- end }}
+    {{- $count := len $images }}
+    <li class="gallery-album">
+        {{- with $album.title }}
         <h2>{{ . }}</h2>
         {{- end }}
-        <a href="{{ $src }}">
-            <img src="{{ $src }}" alt="{{ .alt | default .title | default "View full-size photo" }}" loading="lazy" decoding="async">
-        </a>
+        <div class="{{ if eq $count 1 }}gallery-single{{ else }}gallery-tiles {{ if eq $count 2 }}gallery-pair{{ else }}gallery-mosaic{{ end }}{{ end }}">
+            {{- range $index, $image := $images }}
+            {{- $src := strings.TrimPrefix "/" $image | relURL }}
+            {{- $alt := $album.alt | default $album.title | default "View full-size photo" }}
+            {{- if gt $count 1 }}
+            {{- $alt = printf "%s, photo %d" ($album.title | default "Gallery") (add $index 1) }}
+            {{- end }}
+            <a href="{{ $src }}">
+                <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+            </a>
+            {{- end }}
+        </div>
     </li>
+    {{- end }}
     {{- end }}
 </ul>
 {{- else }}

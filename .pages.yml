@@ -120,7 +120,7 @@ content:
           format: markdown
           media: false
       - name: photos
-        label: Photos
+        label: Albums
         type: object
         list: true
         fields:
@@ -129,11 +129,13 @@ content:
             type: string
             required: true
           - name: image
-            label: Photo
+            label: Images
             type: image
             required: true
             options:
               media: gallery-images
+              multiple: true
+              unique: true
           - name: alt
-            label: Alt Text
+            label: Alt Text (single image)
             type: string
